@@ -18,6 +18,8 @@ export default {
     <div>
         <h2>Portfolio</h2>
         <ProjectCard v-for="project in projects" :key="project.id" :project="project" />
+
+        <router-link to="/">Back to Home</router-link>
     </div>
 </template>
 

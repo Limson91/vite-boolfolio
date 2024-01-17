@@ -4,7 +4,7 @@ export default {
         return {
             pageTitle: 'Contact us!',
             email: 'example@info.com',
-            phone: '333-987'
+            phone: '000-1122333'
         };
     },
 
@@ -16,7 +16,7 @@ export default {
 
 <template>
     <div>
-        <h2>{{ pageTitle }}</h2>
+        <h2>Contact us</h2>
         <p>Email: {{ email }}</p>
         <p>Phone: {{ phoneNumber }}</p>
     </div>

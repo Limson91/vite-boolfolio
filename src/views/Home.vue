@@ -30,6 +30,8 @@ export default {
         <p>{{ formattedMessage }}</p>
 
         <button @click="newMessage">New Message</button>
+
+        <router-link to="/portfolio">Visit Portfolio</router-link>
     </div>
 </template>
 
