@@ -1,30 +1,59 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import axios from 'axios';
+import ProjectCard from './components/ProjectCard.vue';
+
+export default {
+  components: {
+    ProjectCard
+  },
+
+  data() {
+    return {
+      projects: [],
+      BASE_URL: 'http://127.0.0.1:8000/api'
+    };
+  },
+
+  methods: {
+    fetchProjects() {
+      axios.get(`${this.BASE_URL}/projects`).then((red) => {
+        console.log(res.data.results);
+        this.projects = red.data.results;
+      });
+    }
+  },
+
+  created() {
+    this.fetchProjects();
+  }
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="container">
+    <h3>Projects List</h3>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+
+  <div class="container">
+    <section>
+      <div v-for="project in projects" :key="project.id" class="card project-card">
+        <ProjectCard :project="project" />
+      </div>
+    </section>
+  </div>
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+<style scoped lang="scss">
+.container {
+  margin-top: 15px;
+  text-align: center;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+
+.project-card {
+  background-color: darkblue;
+  border: 1px, solid black;
+  color: white;
+  padding: 15px;
+  margin-bottom: 15px;
 }
 </style>
