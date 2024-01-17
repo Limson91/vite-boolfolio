@@ -1,6 +1,6 @@
 <script>
 import axios from 'axios';
-import ProjectCard from './components/ProjectCard.vue';
+import ProjectCard from '/components/ProjectCard.vue';
 
 export default {
   components: {
@@ -30,7 +30,7 @@ export default {
 </script>
 
 <template>
-  <div class="container">
+  <!-- <div class="container">
     <h3>Projects List</h3>
   </div>
 
@@ -40,7 +40,11 @@ export default {
         <ProjectCard :project="project" />
       </div>
     </section>
-  </div>
+  </div> -->
+
+  <router-view>
+
+  </router-view>
 </template>
 
 <style scoped lang="scss">
